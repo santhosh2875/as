@@ -1763,6 +1763,15 @@ img {
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .contact-grid {
+    gap: 30px;
+  }
+  .contact-form-wrapper {
+    padding: 30px;
+  }
+}
+
 @media (max-width: 1024px) {
   .collections-grid,
   .collections-grid--large {
@@ -1784,15 +1793,19 @@ img {
   .parallax-section {
     padding: 80px 0;
   }
-}
 
-@media (max-width: 900px) {
-  .heritage-grid {
+  .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .contact-grid {
+  .form-row {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .heritage-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
