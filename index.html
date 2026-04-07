@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A.S. Babu Sah — Babu Sarees Private Limited. Kanchipuram's finest pure silk sarees since 1974. Four generations of master weavers." />
+  <meta name="keywords" content="Kanchipuram silk sarees, Babu Sah sarees, wedding sarees, pure silk sarees, bridal sarees" />
+  <meta property="og:title" content="A.S. Babu Sah — Premium Kanchipuram Silk Sarees Since 1974" />
+  <meta property="og:description" content="Four generations of master weavers. Explore our exclusive Kanchipuram silk saree collections." />
+  <meta property="og:image" content="images/hero_saree.png" />
+  <meta property="og:type" content="website" />
+  <title>A.S. Babu Sah — Kanchipuram Silk Sarees | Babu Sarees Private Limited</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "A.S. Babu Sah — Babu Sarees Private Limited",
+    "description": "Premium Kanchipuram silk sarees since 1974.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "No. 40/A, Nadu Street, Opp to Taluk Office Police Station, Sheikpet",
+      "addressLocality": "Kanchipuram",
+      "postalCode": "631501",
+      "addressCountry": "IN"
+    },
+    "telephone": "044-27222058",
+    "email": "asbabusahsilks@yahoo.co.in",
+    "openingHours": ["Mo-Sa 09:00-20:00", "Su 09:00-17:00"],
+    "foundingDate": "1974"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="home">
+
+  <!-- ===== PRELOADER ===== -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-brand">A.S. BABU SAH</div>
+      <div class="preloader-tagline">Woven with Legacy</div>
+      <div class="preloader-line"><div class="preloader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ===== FLOATING WHATSAPP ===== -->
+  <a href="https://wa.me/919566644426" target="_blank" rel="noopener" class="whatsapp-float" id="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- ===== SCROLL PROGRESS BAR ===== -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="A.S. Babu Sah Home">
+        <span class="nav-logo-main">A.S. BABU SAH</span>
+        <span class="nav-logo-sub">Babu Sarees Private Limited</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links" role="menubar">
+        <li role="none"><a href="index.html" class="active" role="menuitem" id="nav-home">Home</a></li>
+        <li role="none"><a href="about.html" role="menuitem" id="nav-about">About</a></li>
+        <li role="none"><a href="collections.html" role="menuitem" id="nav-collections">Collections</a></li>
+        <li role="none"><a href="#showroom" role="menuitem" id="nav-showroom">Showroom</a></li>
+        <li role="none"><a href="#contact" class="nav-cta" role="menuitem" id="nav-contact">Enquire Now</a></li>
+      </ul>
+
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO PARALLAX SECTION ===== -->
+  <section class="parallax-hero" id="home" aria-label="Hero Banner">
+    <div class="parallax-layer parallax-layer--deep">
+      <img src="images/parallax_silk_bg.png" alt="" aria-hidden="true" />
+    </div>
+    <div class="parallax-layer parallax-layer--mid">
+      <img src="images/parallax_gold_overlay.png" alt="" aria-hidden="true" />
+    </div>
+    <div class="parallax-layer parallax-layer--front">
+      <img src="images/hero_saree.png" alt="Premium Kanchipuram Silk Saree" />
+    </div>
+    <div class="parallax-particles" id="hero-particles" aria-hidden="true"></div>
+    <div class="parallax-overlay"></div>
+
+    <div class="parallax-hero-content">
+      <div class="container">
+        <div class="hero-badge" data-parallax-text>
+          <span class="badge-dot"></span>
+          Est. 1974 · Kanchipuram, Tamil Nadu
+        </div>
+
+        <h1 class="hero-title" data-parallax-text>
+          <span class="title-line"><span class="title-main">A.S. Babu Sah</span></span>
+          <span class="title-line"><span class="title-sub">Timeless Elegance in Silk</span></span>
+        </h1>
+
+        <p class="hero-description" data-parallax-text>
+          Four generations of master weavers. One legacy of pure Kanchipuram silk — handcrafted with devotion, worn with pride.
+        </p>
+
+        <div class="hero-buttons" data-parallax-text>
+          <a href="collections.html" class="btn-primary" id="hero-explore-btn">
+            <span><i class="fa-solid fa-gem"></i>&nbsp; Explore Collections</span>
+          </a>
+          <a href="https://wa.me/919566644426" target="_blank" rel="noopener" class="btn-secondary" id="hero-whatsapp-btn">
+            <i class="fa-brands fa-whatsapp"></i> Shop via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== TICKER ===== -->
+  <div class="ticker-wrap" id="ticker" aria-label="Announcements">
+    <div class="ticker-track">
+      <span class="ticker-item">✦ New Collections Available Daily</span>
+      <span class="ticker-item">✦ Online Shopping via WhatsApp Video Call</span>
+      <span class="ticker-item">✦ Mon–Sat: 9AM – 8PM  |  Sunday: 9AM – 5PM</span>
+      <span class="ticker-item">✦ Free Shipping Available</span>
+      <span class="ticker-item">✦ Own Handloom Factory &amp; Weavers</span>
+      <span class="ticker-item">✦ 1 Lakh+ Colour Combinations</span>
+      <span class="ticker-item">✦ New Collections Available Daily</span>
+      <span class="ticker-item">✦ Online Shopping via WhatsApp Video Call</span>
+      <span class="ticker-item">✦ Mon–Sat: 9AM – 8PM  |  Sunday: 9AM – 5PM</span>
+      <span class="ticker-item">✦ Free Shipping Available</span>
+      <span class="ticker-item">✦ Own Handloom Factory &amp; Weavers</span>
+      <span class="ticker-item">✦ 1 Lakh+ Colour Combinations</span>
+    </div>
+  </div>
+
+  <!-- ===== QUICK HIGHLIGHTS (Mini About Strip) ===== -->
+  <section class="quick-highlights" aria-label="Highlights">
+    <div class="container">
+      <div class="highlights-grid">
+        <div class="highlight-item" data-scroll-reveal="up">
+          <div class="highlight-icon"><i class="fa-solid fa-industry"></i></div>
+          <div class="highlight-text">
+            <strong>Own Handloom Factory</strong>
+            <span>In-house weavers & dyeing</span>
+          </div>
+        </div>
+        <div class="highlight-item" data-scroll-reveal="up">
+          <div class="highlight-icon"><i class="fa-solid fa-palette"></i></div>
+          <div class="highlight-text">
+            <strong>1 Lakh+ Colours</strong>
+            <span>Infinite combinations</span>
+          </div>
+        </div>
+        <div class="highlight-item" data-scroll-reveal="up">
+          <div class="highlight-icon"><i class="fa-solid fa-people-group"></i></div>
+          <div class="highlight-text">
+            <strong>4 Generations</strong>
+            <span>50+ years of legacy</span>
+          </div>
+        </div>
+        <div class="highlight-item" data-scroll-reveal="up">
+          <div class="highlight-icon"><i class="fa-solid fa-video"></i></div>
+          <div class="highlight-text">
+            <strong>WhatsApp Shopping</strong>
+            <span>Live video call</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SHOWROOM PARALLAX SECTION ===== -->
+  <section class="parallax-divider showroom-parallax" id="showroom" aria-label="Visit Our Showroom">
+    <div class="parallax-divider-bg">
+      <img src="images/parallax_showroom.png" alt="A.S. Babu Sah Showroom" />
+    </div>
+    <div class="parallax-divider-overlay showroom-overlay"></div>
+
+    <div class="container">
+      <div class="showroom-content" data-scroll-reveal="up">
+        <span class="section-label">Visit Us</span>
+        <h2 class="section-title">Experience Silk <span class="gold">in Person</span></h2>
+        <p class="section-subtitle">
+          Step into a world of pure silk and golden threads. Or let us come to you — shop from the comfort of your home via WhatsApp Video Call.
+        </p>
+
+        <div class="showroom-hours">
+          <div class="hour-card glass-card">
+            <div class="days">Monday — Saturday</div>
+            <div class="time">9:00 AM – 8:00 PM</div>
+            <div class="time-label">Store Hours</div>
+          </div>
+          <div class="hour-card glass-card">
+            <div class="days">Sunday</div>
+            <div class="time">9:00 AM – 5:00 PM</div>
+            <div class="time-label">Store Hours</div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/919566644426" target="_blank" rel="noopener" class="showroom-whatsapp" id="showroom-whatsapp-btn">
+          <i class="fa-brands fa-whatsapp"></i>
+          Shop via WhatsApp Video Call
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / ENQUIRY SECTION ===== -->
+  <section class="parallax-section contact-section" id="contact" aria-label="Contact Us">
+    <div class="parallax-bg contact-parallax-bg">
+      <img src="images/parallax_gold_overlay.png" alt="" aria-hidden="true" />
+    </div>
+    <div class="parallax-bg-overlay dark-overlay"></div>
+
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info" data-scroll-reveal="left">
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-title">Visit <span class="gold">Our Showroom</span></h2>
+
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+            <div class="contact-item-text">
+              <strong>Address</strong>
+              No. 40/A, Nadu Street,<br>
+              Opp. Taluk Office Police Station, Sheikpet,<br>
+              Kanchipuram – 631501
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
+            <div class="contact-item-text">
+              <strong>Landline</strong>
+              <a href="tel:04427222058">044-27222058</a> &nbsp;|&nbsp;
+              <a href="tel:04427224946">044-27224946</a><br>
+              <a href="tel:04447201515">044-47201515</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
+            <div class="contact-item-text">
+              <strong>WhatsApp / Mobile</strong>
+              <a href="https://wa.me/919566644426" target="_blank">+91-9566644426</a><br>
+              <a href="https://wa.me/919003372891" target="_blank">+91-9003372891</a>&ensp;
+              <a href="https://wa.me/919003422891" target="_blank">+91-9003422891</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+            <div class="contact-item-text">
+              <strong>Email</strong>
+              <a href="mailto:asbabusahsilks@yahoo.co.in">asbabusahsilks@yahoo.co.in</a>
+            </div>
+          </div>
+
+          <div class="contact-social" aria-label="Social media links">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/919566644426" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.634!2d79.7036!3d12.8382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52c3c1b7e7f2d3%3A0x5a3bcd7c4b5e1234!2sNadu%20Street%2C%20Kanchipuram!5e0!3m2!1sen!2sin!4v1!5m2!1sen!2sin"
+              width="100%" height="220"
+              style="border:0; filter: grayscale(30%) invert(5%);"
+              allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="A.S. Babu Sah Location Map">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper glass-card" data-scroll-reveal="right">
+          <h3>Send an <span class="gold-text">Enquiry</span></h3>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="form-name" name="name" placeholder="Your Name *" required autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <input type="tel" id="form-phone" name="phone" placeholder="Phone Number *" required autocomplete="tel" />
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" id="form-email" name="email" placeholder="Email Address" autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <input type="text" id="form-saree" name="saree_type" placeholder="Saree Type / Category of Interest" />
+            </div>
+            <div class="form-group">
+              <textarea id="form-message" name="message" placeholder="Your Message or Specific Requirements..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" id="form-submit-btn">
+              <span><i class="fa-solid fa-paper-plane"></i>&nbsp; Send Enquiry</span>
+            </button>
+            <div id="form-success" style="display:none; color: var(--gold); font-size:0.9rem; margin-top:10px; font-family: var(--font-accent);">
+              ✓ Thank you! We'll get back to you shortly.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" aria-label="Site Footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px;">
+            <span class="nav-logo-main">A.S. BABU SAH</span>
+            <span class="nav-logo-sub">Babu Sarees Private Limited</span>
+          </div>
+          <p>Kanchipuram's finest silk sarees since 1974. Four generations of master weavers dedicated to the timeless art of pure Kanchipuram pattu.</p>
+          <div class="contact-social" style="margin-top: 20px;" aria-label="Footer social links">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/919566644426" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="collections.html">Our Collections</a></li>
+            <li><a href="index.html#showroom">Showroom</a></li>
+            <li><a href="index.html#contact">Enquiry</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="collections.html">Bridal Collections</a></li>
+            <li><a href="collections.html">Traditional Sarees</a></li>
+            <li><a href="collections.html">Soft Silk Sarees</a></li>
+            <li><a href="collections.html">Light Weight Sarees</a></li>
+            <li><a href="collections.html">Nineyard Sarees</a></li>
+            <li><a href="collections.html">Silk Pavadai</a></li>
+            <li><a href="collections.html">Dhotis</a></li>
+            <li><a href="collections.html">IKATH Sarees</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <span class="fc-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+            <span>No. 40/A, Nadu Street, Sheikpet, Kanchipuram – 631501</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fc-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+            <span><a href="tel:04427222058" style="color:inherit;">044-27222058</a><br><a href="tel:04427224946" style="color:inherit;">044-27224946</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fc-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+            <span><a href="https://wa.me/919566644426" target="_blank" style="color: var(--gold);">+91-9566644426</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fc-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+            <span><a href="mailto:asbabusahsilks@yahoo.co.in" style="color:inherit;">asbabusahsilks@yahoo.co.in</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 <a href="index.html">Babu Sarees Private Limited</a>. All rights reserved.</p>
+        <p>Only Shop @ Nadu Street, <strong style="color:var(--gold)">Kancheepuram</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
