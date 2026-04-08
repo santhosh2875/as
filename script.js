@@ -9,15 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== PRELOADER =====
   const preloader = document.getElementById('preloader');
   window.addEventListener('load', () => {
-    setTimeout(() => {
-      preloader.classList.add('loaded');
-      // Start parallax after preloader
+    if (preloader) {
       setTimeout(() => {
-        initAllParallax();
-        initScrollReveal();
-        initCounters();
-      }, 600);
-    }, 2200);
+        requestAnimationFrame(() => {
+          preloader.classList.add('loaded');
+        });
+        setTimeout(() => {
+          if (typeof gsap !== 'undefined') initAllParallax();
+          initScrollReveal();
+          initCounters();
+        }, 600);
+      }, 1500); // Reduced from 2200ms
+    } else {
+      // If no preloader exists (on subpages), initialize immediately
+      if (typeof gsap !== 'undefined') initAllParallax();
+      initScrollReveal();
+      initCounters();
+    }
   });
 
   // ===== NAVBAR =====
@@ -48,7 +56,27 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
       navLinks.classList.remove('open');
+      document.body.classList.remove('menu-open');
     });
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }
+  });
+
+  // Prevent background scroll when menu is open
+  hamburger.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
   });
 
   // ===== SCROLL PROGRESS BAR =====
@@ -62,6 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== ACTIVE NAV LINK =====
   function updateActiveNav() {
+    // Only update hash-based active links on home page
+    if (document.body.dataset.page !== 'home') return;
+
     const sections = document.querySelectorAll('section[id]');
     const scrollPos = window.scrollY + 200;
 
@@ -71,9 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const id = section.getAttribute('id');
 
       if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-        const activeLink = navLinks.querySelector(`a[href="#${id}"]`);
-        if (activeLink) activeLink.classList.add('active');
+        navLinks.querySelectorAll('a').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href === `index.html#${id}` || href === `#${id}`) {
+            // Find all current active hash links and remove
+            navLinks.querySelectorAll('a[href*="#"]').forEach(h => h.classList.remove('active'));
+            a.classList.add('active');
+          }
+        });
       }
     });
   }
@@ -83,7 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('hero-particles');
     if (!container) return;
 
-    const particleCount = 40;
+    const isMobile = window.innerWidth <= 768;
+    const particleCount = isMobile ? 20 : 40;
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.classList.add('gold-particle');
@@ -362,7 +399,10 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
-          const target = parseInt(el.getAttribute('data-target'));
+          const targetAttr = el.getAttribute('data-target');
+          if (!targetAttr) return; // Fix Issue 16: NaN guard
+          
+          const target = parseInt(targetAttr);
           const suffix = el.getAttribute('data-suffix') || '';
           let current = 0;
           const increment = target / 60;
@@ -389,13 +429,35 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('form-name').value.trim();
-      const phone = document.getElementById('form-phone').value.trim();
+      
+      const nameInput = document.getElementById('form-name');
+      const phoneInput = document.getElementById('form-phone');
+      const nameError = document.getElementById('error-name');
+      const phoneError = document.getElementById('error-phone');
+      
+      const name = nameInput.value.trim();
+      const phone = phoneInput.value.trim();
+      let isValid = true;
 
-      if (!name || !phone) {
-        alert('Please fill in your Name and Phone Number.');
-        return;
+      // Reset errors
+      nameInput.classList.remove('input-error');
+      phoneInput.classList.remove('input-error');
+      if (nameError) nameError.style.display = 'none';
+      if (phoneError) phoneError.style.display = 'none';
+
+      if (!name) {
+        isValid = false;
+        nameInput.classList.add('input-error');
+        if (nameError) nameError.style.display = 'block';
       }
+      
+      if (!phone) {
+        isValid = false;
+        phoneInput.classList.add('input-error');
+        if (phoneError) phoneError.style.display = 'block';
+      }
+
+      if (!isValid) return;
 
       const formSuccess = document.getElementById('form-success');
       formSuccess.style.display = 'block';
@@ -409,14 +471,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
+  document.querySelectorAll('a[href*="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = navbar.offsetHeight;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+      const href = link.getAttribute('href');
+      
+      // Only intercept if it's a pure anchor on the current page OR it targets the current page
+      const isHome = document.body.dataset.page === 'home';
+      if (href.startsWith('#') || (href.startsWith('index.html#') && isHome)) {
+        const targetId = href.substring(href.indexOf('#'));
+        const target = document.querySelector(targetId);
+        
+        if (target) {
+          e.preventDefault();
+          const offset = navbar.offsetHeight;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
       }
     });
   });
@@ -478,6 +548,15 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
     });
+  });
+  
+  // Reset tilt on desktop-to-mobile resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 768) {
+      document.querySelectorAll('.card-inner').forEach(card => {
+        card.style.transform = '';
+      });
+    }
   });
 
   // ===== MAGNETIC BUTTON EFFECT =====

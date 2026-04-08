@@ -7,7 +7,7 @@
   <meta name="keywords" content="Kanchipuram silk sarees, Babu Sah sarees, wedding sarees, pure silk sarees, bridal sarees" />
   <meta property="og:title" content="A.S. Babu Sah — Premium Kanchipuram Silk Sarees Since 1974" />
   <meta property="og:description" content="Four generations of master weavers. Explore our exclusive Kanchipuram silk saree collections." />
-  <meta property="og:image" content="images/hero_saree.png" />
+  <meta property="og:image" content="images/hero_saree.webp" />
   <meta property="og:type" content="website" />
   <title>A.S. Babu Sah — Kanchipuram Silk Sarees | Babu Sarees Private Limited</title>
 
@@ -85,13 +85,13 @@
   <!-- ===== HERO PARALLAX SECTION ===== -->
   <section class="parallax-hero" id="home" aria-label="Hero Banner">
     <div class="parallax-layer parallax-layer--deep">
-      <img src="images/parallax_silk_bg.png" alt="" aria-hidden="true" />
+      <img src="images/parallax_silk_bg.webp" alt="" aria-hidden="true" />
     </div>
     <div class="parallax-layer parallax-layer--mid">
-      <img src="images/parallax_gold_overlay.png" alt="" aria-hidden="true" />
+      <img src="images/parallax_gold_overlay.webp" alt="" aria-hidden="true" />
     </div>
     <div class="parallax-layer parallax-layer--front">
-      <img src="images/hero_saree.png" alt="Premium Kanchipuram Silk Saree" />
+      <img src="images/hero_saree.webp" alt="Premium Kanchipuram Silk Saree" />
     </div>
     <div class="parallax-particles" id="hero-particles" aria-hidden="true"></div>
     <div class="parallax-overlay"></div>
@@ -186,7 +186,7 @@
   <!-- ===== SHOWROOM PARALLAX SECTION ===== -->
   <section class="parallax-divider showroom-parallax" id="showroom" aria-label="Visit Our Showroom">
     <div class="parallax-divider-bg">
-      <img src="images/parallax_showroom.png" alt="A.S. Babu Sah Showroom" />
+      <img src="images/parallax_showroom.webp" alt="A.S. Babu Sah Showroom" loading="lazy" decoding="async" />
     </div>
     <div class="parallax-divider-overlay showroom-overlay"></div>
 
@@ -222,7 +222,7 @@
   <!-- ===== CONTACT / ENQUIRY SECTION ===== -->
   <section class="parallax-section contact-section" id="contact" aria-label="Contact Us">
     <div class="parallax-bg contact-parallax-bg">
-      <img src="images/parallax_gold_overlay.png" alt="" aria-hidden="true" />
+      <img src="images/parallax_gold_overlay.webp" alt="" aria-hidden="true" />
     </div>
     <div class="parallax-bg-overlay dark-overlay"></div>
 
@@ -256,9 +256,9 @@
             <div class="contact-item-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
             <div class="contact-item-text">
               <strong>WhatsApp / Mobile</strong>
-              <a href="https://wa.me/919566644426" target="_blank">+91-9566644426</a><br>
-              <a href="https://wa.me/919003372891" target="_blank">+91-9003372891</a>&ensp;
-              <a href="https://wa.me/919003422891" target="_blank">+91-9003422891</a>
+              <a href="https://wa.me/919566644426" target="_blank" rel="noopener">+91-9566644426</a><br>
+              <a href="https://wa.me/919003372891" target="_blank" rel="noopener">+91-9003372891</a>&ensp;
+              <a href="https://wa.me/919003422891" target="_blank" rel="noopener">+91-9003422891</a>
             </div>
           </div>
 
@@ -294,9 +294,11 @@
             <div class="form-row">
               <div class="form-group">
                 <input type="text" id="form-name" name="name" placeholder="Your Name *" required autocomplete="name" />
+                <span id="error-name" class="form-error" style="display:none; color:#e06666; font-size:0.8rem; margin-top:4px;">Please enter your name</span>
               </div>
               <div class="form-group">
                 <input type="tel" id="form-phone" name="phone" placeholder="Phone Number *" required autocomplete="tel" />
+                <span id="error-phone" class="form-error" style="display:none; color:#e06666; font-size:0.8rem; margin-top:4px;">Please enter your phone number</span>
               </div>
             </div>
             <div class="form-group">
