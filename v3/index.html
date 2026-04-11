@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A.S. Babu Sah — Kanchipuram's Finest Silk House Since 1924</title>
+  <meta name="description" content="Popular emporium since 1924 for handwoven silk sarees in traditional, bridal & modern motifs. Located in Kanchipuram, Tamil Nadu.">
+  <meta name="theme-color" content="#C9922A" id="meta-theme-color">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('asbabusah-v3-theme') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          var m = document.getElementById('meta-theme-color');
+          if (m) m.setAttribute('content', '#0a0708');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@100..900&family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- GSAP + ScrollTrigger for premium animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "A.S. Babu Sah",
+    "foundingDate": "1924",
+    "description": "Popular emporium since 1924 for handwoven Kanchipuram silk sarees",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "40A, Sheikhpet Nadu St",
+      "addressLocality": "Kanchipuram",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "631501",
+      "addressCountry": "IN"
+    },
+    "telephone": "+914427222058",
+    "url": "https://babusah.vercel.app"
+  }
+  </script>
+</head>
+<body class="is-loading">
+
+  <!-- ==========================================
+       PRELOADER (minimal black + gold — reference layout)
+       ========================================== -->
+  <div id="preloader" class="preloader" aria-busy="true" aria-label="Loading">
+    <div class="preloader-inner">
+      <h1 class="preloader-brand">A.S. BABU SAH</h1>
+      <p class="preloader-tagline">Woven with Legacy</p>
+      <div class="preloader-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="preloader-progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       GOLDEN PARTICLES CANVAS
+       ========================================== -->
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- ==========================================
+       CUSTOM CURSOR
+       ========================================== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ==========================================
+       ANNOUNCEMENT TICKER BAR
+       ========================================== -->
+  <div class="ticker" id="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Book Your Exclusive Virtual Shopping Experience</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Shop Premium Silk Sarees from the Comfort of Your Home</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Schedule a Personal Styling Session - Download Our App</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> 100 Years of Silk Heritage</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Book Your Exclusive Virtual Shopping Experience</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Shop Premium Silk Sarees from the Comfort of Your Home</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Schedule a Personal Styling Session - Download Our App</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> 100 Years of Silk Heritage</span>
+      <span class="ticker-divider">✦</span>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       NAVIGATION
+       ========================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-main">A.S. BABU SAH</span>
+        <span class="logo-sub">Est. 1924 · Kanchipuram</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" id="navMenu">
+        <a href="#collections" class="nav-link" data-text="Collections">Collections</a>
+        <a href="#heritage" class="nav-link" data-text="Heritage">Heritage</a>
+        <a href="#experience" class="nav-link" data-text="Experience">Experience</a>
+        <a href="#testimonials" class="nav-link" data-text="Reviews">Reviews</a>
+        <a href="#faq" class="nav-link" data-text="FAQ">FAQ</a>
+        <a href="https://wa.me/919566644426" class="nav-cta" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book Appointment
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       HERO: mobile = v3 (image + Three.js) · desktop ≥1025px = main site parallax
+       ========================================== -->
+  <div id="home" class="hero-split">
+    <section class="hero hero--mobile-only" aria-label="Hero Banner">
+      <div class="hero-bg-image" aria-hidden="true">
+        <img src="img/hero_saree.png" alt="Premium Kanchipuram Silk Saree" width="1920" height="1080" />
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div id="particles-container" aria-hidden="true"></div>
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+      <div class="hero-brand-top">
+        <h1 class="hero-brand-title">
+          <span class="hero-brand-title-text gold-shimmer">A.S. Babu Sah</span>
+        </h1>
+        <p class="hero-brand-tagline">Est. 1924 · Kanchipuram</p>
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-buttons">
+            <a href="#collections" class="btn-primary" id="hero-explore-btn-mobile">
+              <span><i class="fa-solid fa-gem"></i>&nbsp; Explore Collections</span>
+            </a>
+            <a href="https://wa.me/919566644426" target="_blank" rel="noopener" class="btn-secondary" id="hero-whatsapp-btn-mobile">
+              <i class="fa-brands fa-whatsapp"></i> Shop via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="parallax-hero parallax-hero--v3-desktop" aria-label="Hero Banner">
+      <div class="parallax-layer parallax-layer--deep">
+        <img src="img/parallax_silk_bg.webp" alt="" aria-hidden="true" />
+      </div>
+      <div class="parallax-layer parallax-layer--mid">
+        <img src="img/parallax_gold_overlay.webp" alt="" aria-hidden="true" />
+      </div>
+      <div class="parallax-layer parallax-layer--front">
+        <img src="img/hero_saree.webp" alt="Premium Kanchipuram Silk Saree" />
+      </div>
+      <div class="parallax-particles" id="hero-particles" aria-hidden="true"></div>
+      <div class="parallax-overlay"></div>
+
+      <div class="parallax-hero-content">
+        <div class="container">
+          <div class="hero-badge" data-parallax-text>
+            <span class="badge-dot"></span>
+            Est. 1924 · Kanchipuram, Tamil Nadu
+          </div>
+
+          <h1 class="hero-title" data-parallax-text>
+            <span class="title-line"><span class="title-main">A.S. Babu Sah</span></span>
+            <span class="title-line"><span class="title-sub">Timeless Elegance in Silk</span></span>
+          </h1>
+
+          <p class="hero-description" data-parallax-text>
+            Four generations of master weavers. One legacy of pure Kanchipuram silk — handcrafted with devotion, worn with pride.
+          </p>
+
+          <div class="hero-buttons" data-parallax-text>
+            <a href="#collections" class="btn-primary" id="hero-explore-btn-desktop">
+              <span><i class="fa-solid fa-gem"></i>&nbsp; Explore Collections</span>
+            </a>
+            <a href="https://wa.me/919566644426" target="_blank" rel="noopener" class="btn-secondary" id="hero-whatsapp-btn-desktop">
+              <i class="fa-brands fa-whatsapp"></i> Shop via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span class="scroll-text">Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       HERITAGE COUNTER SECTION (Parallax)
+       ========================================== -->
+  <section class="heritage-strip" id="heritage">
+    <div class="heritage-parallax-bg" data-speed="0.2">
+      <img src="img/IMG_4011.JPG" alt="Heritage" class="heritage-bg-img">
+      <div class="heritage-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="heritage-grid">
+        <div class="heritage-stat">
+          <span class="stat-number" data-count="100">0</span>
+          <span class="stat-suffix">+</span>
+          <span class="stat-label">Years of Legacy</span>
+        </div>
+        <div class="heritage-divider-v"></div>
+        <div class="heritage-stat">
+          <span class="stat-number" data-count="10000">0</span>
+          <span class="stat-suffix">+</span>
+          <span class="stat-label">Saree Designs</span>
+        </div>
+        <div class="heritage-divider-v"></div>
+        <div class="heritage-stat">
+          <span class="stat-number" data-count="3">0</span>
+          <span class="stat-suffix"></span>
+          <span class="stat-label">Floor Showroom</span>
+        </div>
+        <div class="heritage-divider-v"></div>
+        <div class="heritage-stat">
+          <span class="stat-number" data-count="5">0</span>
+          <span class="stat-suffix">★</span>
+          <span class="stat-label">Google Rated</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SHOP BY CATEGORY (Staggered Parallax Grid)
+       ========================================== -->
+  <section class="collections" id="collections">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Curated Collections</span>
+        <h2 class="section-title">Discover Our World of Silk</h2>
+        <div class="title-ornament">
+          <span class="ornament-line"></span>
+          <span class="ornament-diamond">◆</span>
+          <span class="ornament-line"></span>
+        </div>
+        <p class="section-subtitle">Explore our curated selection of traditional and contemporary silk sarees, each telling a unique story of craftsmanship and cultural heritage.</p>
+      </div>
+      <div class="collections-grid">
+        <div class="collection-card reveal" data-tilt>
+          <div class="card-inner">
+            <div class="card-img-wrapper">
+              <img src="img/IMG_4012.JPG" alt="Kanchipuram Pure Silk" class="card-img">
+              <div class="card-shimmer"></div>
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <span class="card-number">01</span>
+              <h3 class="card-title">Kanchipuram Pure Silk</h3>
+              <p class="card-desc">Celebrate the rich cultural heritage of South India.</p>
+              <a href="https://wa.me/919566644426?text=I'm%20interested%20in%20Kanchipuram%20Pure%20Silk" class="card-link" target="_blank" rel="noopener">
+                <span>Explore Collection</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="collection-card" data-tilt>
+          <div class="card-inner">
+            <div class="card-img-wrapper">
+              <img src="img/IMG_4013.JPG" alt="Soft Silk Sarees" class="card-img">
+              <div class="card-shimmer"></div>
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <span class="card-number">02</span>
+              <h3 class="card-title">Soft Silk Sarees</h3>
+              <p class="card-desc">Effortless comfort with a touch of radiant sheen.</p>
+              <a href="https://wa.me/919566644426?text=I'm%20interested%20in%20Soft%20Silk%20Sarees" class="card-link" target="_blank" rel="noopener">
+                <span>Explore Collection</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="collection-card" data-tilt>
+          <div class="card-inner">
+            <div class="card-img-wrapper">
+              <img src="img/IMG_4014.JPG" alt="Cotton Silk Blend" class="card-img">
+              <div class="card-shimmer"></div>
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <span class="card-number">03</span>
+              <h3 class="card-title">Cotton Silk Blend</h3>
+              <p class="card-desc">Versatile option for everyday wear and special occasions.</p>
+              <a href="https://wa.me/919566644426?text=I'm%20interested%20in%20Cotton%20Silk" class="card-link" target="_blank" rel="noopener">
+                <span>Explore Collection</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="collection-card" data-tilt>
+          <div class="card-inner">
+            <div class="card-img-wrapper">
+              <img src="img/IMG_4015.JPG" alt="Organza Silk" class="card-img">
+              <div class="card-shimmer"></div>
+            </div>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <span class="card-number">04</span>
+              <h3 class="card-title">Organza Silk</h3>
+              <p class="card-desc">Where luxury meets lightweight comfort in graceful drape.</p>
+              <a href="https://wa.me/919566644426?text=I'm%20interested%20in%20Organza%20Silk" class="card-link" target="_blank" rel="noopener">
+                <span>Explore Collection</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PARALLAX QUOTE SECTION
+       ========================================== -->
+  <section class="parallax-quote">
+    <div class="parallax-quote-bg" data-speed="0.15">
+      <img src="img/IMG_4019.JPG" alt="" class="parallax-quote-img">
+      <div class="parallax-quote-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="quote-content reveal">
+        <div class="quote-mark">"</div>
+        <blockquote class="quote-text">
+          Every thread we weave carries the soul of Kanchipuram's thousand-year-old silk tradition. Our sarees are not just garments — they are heirlooms.
+        </blockquote>
+        <div class="quote-author">
+          <span class="quote-line"></span>
+          <span class="quote-name">A.S. Babu Sah Legacy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       EXPERIENCE OUR COLLECTION (VIDEO)
+       ========================================== -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Behind the Weave</span>
+        <h2 class="section-title">Experience Our Collection</h2>
+        <div class="title-ornament">
+          <span class="ornament-line"></span>
+          <span class="ornament-diamond">◆</span>
+          <span class="ornament-line"></span>
+        </div>
+        <p class="section-subtitle">Discover the beauty and craftsmanship of our silk sarees</p>
+      </div>
+      <div class="video-grid">
+        <div class="video-card reveal">
+          <a href="https://www.youtube.com/watch?v=LuUOj7-qGlA" target="_blank" rel="noopener" class="video-link">
+            <div class="video-thumb-wrapper">
+              <img src="https://img.youtube.com/vi/LuUOj7-qGlA/maxresdefault.jpg" alt="Kanchipuram Silk Video" class="video-thumb">
+              <div class="video-play">
+                <div class="play-ripple"></div>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="video-overlay"></div>
+            </div>
+            <div class="video-info">
+              <span class="video-tag">Traditional Heritage</span>
+              <h3 class="video-title">Kanchipuram Silk</h3>
+            </div>
+          </a>
+        </div>
+        <div class="video-card">
+          <a href="https://www.youtube.com/watch?v=A_TgoQs_ox0" target="_blank" rel="noopener" class="video-link">
+            <div class="video-thumb-wrapper">
+              <img src="https://img.youtube.com/vi/A_TgoQs_ox0/maxresdefault.jpg" alt="Bridal Collection Video" class="video-thumb">
+              <div class="video-play">
+                <div class="play-ripple"></div>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="video-overlay"></div>
+            </div>
+            <div class="video-info">
+              <span class="video-tag">Wedding Special</span>
+              <h3 class="video-title">Bridal Collection</h3>
+            </div>
+          </a>
+        </div>
+        <div class="video-card">
+          <a href="https://www.youtube.com/watch?v=i6c4TvsZSww" target="_blank" rel="noopener" class="video-link">
+            <div class="video-thumb-wrapper">
+              <img src="https://img.youtube.com/vi/i6c4TvsZSww/maxresdefault.jpg" alt="Soft Silk Sarees Video" class="video-thumb">
+              <div class="video-play">
+                <div class="play-ripple"></div>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="video-overlay"></div>
+            </div>
+            <div class="video-info">
+              <span class="video-tag">Comfort & Elegance</span>
+              <h3 class="video-title">Soft Silk Sarees</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       INSTAGRAM FEED (Masonry)
+       ========================================== -->
+  <section class="instagram" id="instagram">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">@asbabusah</span>
+        <h2 class="section-title">Follow Us On Instagram</h2>
+        <div class="title-ornament">
+          <span class="ornament-line"></span>
+          <span class="ornament-diamond">◆</span>
+          <span class="ornament-line"></span>
+        </div>
+      </div>
+      <div class="instagram-grid">
+        <a href="https://www.instagram.com/asbabusah/" target="_blank" rel="noopener" class="insta-item reveal">
+          <img src="img/IMG_4011.JPG" alt="Instagram Post" class="insta-img">
+          <div class="insta-overlay">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/asbabusah/" target="_blank" rel="noopener" class="insta-item">
+          <img src="img/IMG_4012.JPG" alt="Instagram Post" class="insta-img">
+          <div class="insta-overlay">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/asbabusah/" target="_blank" rel="noopener" class="insta-item">
+          <img src="img/IMG_4013.JPG" alt="Instagram Post" class="insta-img">
+          <div class="insta-overlay">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/asbabusah/" target="_blank" rel="noopener" class="insta-item">
+          <img src="img/IMG_4014.JPG" alt="Instagram Post" class="insta-img">
+          <div class="insta-overlay">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/asbabusah/" target="_blank" rel="noopener" class="insta-item">
+          <img src="img/IMG_4015.JPG" alt="Instagram Post" class="insta-img">
+          <div class="insta-overlay">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/asbabusah/" target="_blank" rel="noopener" class="insta-item">
+          <img src="img/IMG_4016.JPG" alt="Instagram Post" class="insta-img">
+          <div class="insta-overlay">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+        </a>
+      </div>
+      <div class="insta-cta reveal">
+        <a href="https://www.instagram.com/asbabusah/" class="btn btn-gold-outline" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Follow Us on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TESTIMONIALS
+       ========================================== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Customer Love</span>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="title-ornament">
+          <span class="ornament-line"></span>
+          <span class="ornament-diamond">◆</span>
+          <span class="ornament-line"></span>
+        </div>
+        <p class="section-subtitle">Don't just take our word for it &mdash; hear from our satisfied customers</p>
+        <div class="testimonials-rating">
+          <div class="stars">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#D4AF37"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="rating-text">5.0 Rating &middot; Based on Google Reviews</span>
+        </div>
+      </div>
+      <div class="testimonials-carousel" id="testimonialCarousel">
+        <div class="testimonials-track">
+          <div class="testimonial-card">
+            <div class="testimonial-glass">
+              <div class="testimonial-quote">&ldquo;</div>
+              <p class="testimonial-text">AS Babu Sah is a fantastic destination for high-quality beautiful sarees. Their wide collection ranging from traditional to contemporary designs is truly impressive. The customer service is exceptional &mdash; the staff is knowledgeable and attentive, making every visit a pleasant experience. The store ambiance is welcoming, and they always have the latest trends. Highly recommended!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">JA</div>
+                <div class="testimonial-info">
+                  <span class="testimonial-name">JYOTHI ANTONY KUMAR</span>
+                  <span class="testimonial-meta">Local Guide &middot; 37 reviews &middot; 7 months ago</span>
+                </div>
+                <div class="testimonial-badge">
+                  <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                  <span>Google</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-glass">
+              <div class="testimonial-quote">&ldquo;</div>
+              <p class="testimonial-text">An absolute paradise for silk saree lovers! The staff was incredibly patient and helped me find the perfect bridal saree. It's a huge 3-floor store with a massive collection across all price ranges. Whether you're looking for everyday silk or a &#8377;5 lakh bridal masterpiece, they have it all. The ambiance and organization is top notch.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">RP</div>
+                <div class="testimonial-info">
+                  <span class="testimonial-name">Dr. Ramya Priyadarshini</span>
+                  <span class="testimonial-meta">Local Guide &middot; 392 reviews &middot; 5 months ago</span>
+                </div>
+                <div class="testimonial-badge">
+                  <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                  <span>Google</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-glass">
+              <div class="testimonial-quote">&ldquo;</div>
+              <p class="testimonial-text">Well organized shop with both retail and wholesale options. Decent and moderate pricing with sarees ranging from &#8377;500 to &#8377;5 lakh. The store has prominent signage and is one of the most well-known shops in Kanchipuram. Ample parking available. The staff is professional and they have a wonderful collection for every occasion and budget.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">RN</div>
+                <div class="testimonial-info">
+                  <span class="testimonial-name">Ramkumar Nallathambi</span>
+                  <span class="testimonial-meta">Local Guide &middot; 519 reviews &middot; 4 months ago</span>
+                </div>
+                <div class="testimonial-badge">
+                  <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                  <span>Google</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonials-nav">
+          <button class="testimonial-btn testimonial-prev" aria-label="Previous review">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <div class="testimonial-dots">
+            <button class="dot active" data-index="0"></button>
+            <button class="dot" data-index="1"></button>
+            <button class="dot" data-index="2"></button>
+          </div>
+          <button class="testimonial-btn testimonial-next" aria-label="Next review">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="testimonials-cta reveal">
+          <a href="https://www.google.com/maps/place/A.S.+Babu+Sah" class="btn btn-gold-outline" target="_blank" rel="noopener">View All Reviews on Google</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FAQ SECTION
+       ========================================== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Help</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="title-ornament">
+          <span class="ornament-line"></span>
+          <span class="ornament-diamond">◆</span>
+          <span class="ornament-line"></span>
+        </div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>How to Book an Appointment?</span>
+            <div class="faq-icon-wrap">
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>You can book an appointment by contacting us on WhatsApp at 95666 44426. Simply send us a message with your preferred date and time, and our team will confirm your appointment. You can also call us at 044 2722 2058 during business hours.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What should I prepare for my appointment?</span>
+            <div class="faq-icon-wrap">
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>For the best experience, have an idea of the occasion you're shopping for, any color preferences, and your budget range. If it's a virtual appointment, ensure you have a stable internet connection. Our expert stylists will guide you through the rest!</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What types of sarees are available?</span>
+            <div class="faq-icon-wrap">
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>We offer Kanchipuram Pure Silk, Soft Silk, Cotton Silk Blends, Organza Silk, Bridal Grand Silk, and contemporary designs. Our collection of 10,000+ sarees ranges from &#8377;500 to &#8377;5 lakh, covering everyday wear to exclusive bridal masterpieces.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you offer delivery across India?</span>
+            <div class="faq-icon-wrap">
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, we deliver across all of India. Every saree is carefully packaged with insurance. Delivery typically takes 3-7 business days depending on your location.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I visit the store in person?</span>
+            <div class="faq-icon-wrap">
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely! Our flagship store is at 40A, Sheikhpet Nadu St, Kanchipuram, Tamil Nadu 631501. We're open daily until 7:30 PM. We recommend booking an appointment for a personalized experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       APPOINTMENT CTA (Cinematic Parallax)
+       ========================================== -->
+  <section class="appointment-cta" id="showroom">
+    <div class="cta-parallax-bg" data-speed="0.2">
+      <img src="img/IMG_4019.JPG" alt="" class="cta-bg-img">
+      <div class="cta-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content reveal">
+        <span class="section-label section-label-light">Book Your Experience</span>
+        <h2 class="cta-title">Please Book an Appointment</h2>
+        <div class="title-ornament title-ornament-light">
+          <span class="ornament-line"></span>
+          <span class="ornament-diamond">◆</span>
+          <span class="ornament-line"></span>
+        </div>
+        <p class="cta-subtitle">Experience personalized styling consultations with our expert designers. WhatsApp us at 95666 44426 for appointment booking.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/919566644426" class="btn btn-gold btn-large" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp — 95666 44426
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER (structure + copy aligned with root index.html)
+       ========================================== -->
+  <footer class="footer" id="contact" aria-label="Site Footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px;">
+            <span class="nav-logo-main">A.S. BABU SAH</span>
+            <span class="nav-logo-sub">Babu Sarees Private Limited</span>
+          </div>
+          <p>Kanchipuram's finest silk sarees since 1974. Four generations of master weavers dedicated to the timeless art of pure Kanchipuram pattu.</p>
+          <div class="contact-social" style="margin-top: 20px;" aria-label="Footer social links">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/919566644426" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#showroom">Showroom</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <span class="fc-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+            <span>No. 40/A, Nadu Street, Sheikpet, Kanchipuram – 631501</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fc-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+            <span><a href="tel:04427222058" class="footer-inline-link">044-27222058</a><br><a href="tel:04427224946" class="footer-inline-link">044-27224946</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fc-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
+            <span><a href="https://wa.me/919566644426" target="_blank" rel="noopener" class="footer-wa-link">+91-9566644426</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fc-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+            <span><a href="mailto:asbabusahsilks@yahoo.co.in" class="footer-inline-link">asbabusahsilks@yahoo.co.in</a></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 <a href="index.html">Babu Sarees Private Limited</a>. All rights reserved.</p>
+        <p>Only Shop @ Nadu Street, <strong class="footer-bottom-gold">Kancheepuram</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Theme: dark premium (palette from main styles.css) -->
+  <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme" title="Dark mode">
+    <i class="fa-solid fa-moon theme-toggle-icon theme-toggle-moon" aria-hidden="true"></i>
+    <i class="fa-solid fa-sun theme-toggle-icon theme-toggle-sun" aria-hidden="true"></i>
+  </button>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919566644426" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <div class="wa-pulse"></div>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
