@@ -4,6 +4,10 @@
 [build]
   publish = "v3"
 
+# Keep raster assets sharp on Netlify (post-processing can re-compress images).
+[build.processing.images]
+  compress = false
+
 # No npm/build step — plain HTML/CSS/JS.
 
 [[headers]]
