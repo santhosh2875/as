@@ -1,0 +1,14 @@
+# Static site root = this folder (connect repo santhosh2875/as2 to Netlify, publish directory: .)
+
+[build]
+  publish = "."
+
+[build.processing.images]
+  compress = false
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

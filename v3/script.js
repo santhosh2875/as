@@ -59,7 +59,8 @@ function setupThreeScene(canvas) {
   if (!THREE) return;
 
   const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
-  const wireOpacity = coarsePointer ? 0.11 : 0.07;
+  /* Match desktop: strong gold wire on mobile read as a yellow wash over the photo */
+  const wireOpacity = coarsePointer ? 0.045 : 0.07;
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
