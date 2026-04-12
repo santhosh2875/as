@@ -113,87 +113,6 @@ button {
 }
 
 /* ============================================
-   PRELOADER — rich brown + metallic gold
-   ============================================ */
-body.is-loading {
-  overflow: hidden;
-}
-
-.preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(165deg, #241610 0%, #1a100c 45%, #140b08 100%);
-  transition: opacity 0.45s ease, visibility 0.45s step-end;
-}
-
-.preloader-inner {
-  text-align: center;
-  padding: 32px 28px;
-  max-width: 90vw;
-  transition: opacity 0.4s ease;
-}
-
-.preloader-brand {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 5.5vw, 2.75rem);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  line-height: 1.15;
-  color: #c5a059;
-  text-transform: uppercase;
-  margin: 0;
-  text-shadow: 0 0 40px rgba(197, 160, 89, 0.15);
-}
-
-.preloader-tagline {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: clamp(0.95rem, 2.4vw, 1.15rem);
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  color: #b8944a;
-  margin: 18px 0 0;
-  opacity: 0.92;
-}
-
-.preloader-progress {
-  width: min(320px, 78vw);
-  height: 2px;
-  margin: 36px auto 0;
-  background: rgba(6, 4, 3, 0.65);
-  border-radius: 1px;
-  overflow: hidden;
-  position: relative;
-}
-
-.preloader-progress-fill {
-  height: 100%;
-  width: 0%;
-  background: #d4af37;
-  border-radius: 1px;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
-}
-
-.preloader.preloader-exit .preloader-inner {
-  opacity: 0;
-}
-
-.preloader.preloader-exit {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.preloader.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* ============================================
    GOLDEN PARTICLES
    ============================================ */
 #particlesCanvas {
@@ -698,10 +617,10 @@ html[data-theme="dark"] .navbar {
   }
 }
 
-/* v4: one hero video behind both breakpoints — no CSS/overlay on the video itself */
+/* v4: hero video flush to viewport top (ticker/nav are fixed on top); margin caused ivory gap above video */
 #home.hero-split {
   position: relative;
-  margin-top: var(--ticker-height);
+  margin-top: 0;
 }
 
 #home.hero-split > .hero.hero--mobile-only,
@@ -719,6 +638,8 @@ html[data-theme="dark"] .navbar {
   overflow: hidden;
   pointer-events: none;
   background: var(--bg-hero-dark);
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Static hero frame: under video until playback ends */
@@ -1424,85 +1345,7 @@ html[data-theme="dark"] .navbar {
 }
 
 /* ============================================
-   4. HERITAGE COUNTER STRIP (DARK accent)
-   ============================================ */
-.heritage-strip {
-  position: relative;
-  padding: 70px 0;
-  overflow: hidden;
-  background: var(--bg-hero-dark);
-  margin-top: 0;
-}
-
-.heritage-parallax-bg {
-  position: absolute;
-  inset: -40%;
-  z-index: 0;
-  will-change: transform;
-}
-
-.heritage-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.2) saturate(0.5);
-}
-
-.heritage-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(13, 10, 6, 0.7);
-}
-
-.heritage-grid {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(30px, 5vw, 80px);
-}
-
-.heritage-stat {
-  text-align: center;
-}
-
-.stat-number {
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 800;
-  color: var(--gold-light);
-  line-height: 1;
-  display: inline;
-}
-
-.stat-suffix {
-  font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 3.5vw, 3rem);
-  color: var(--gold-light);
-  font-weight: 400;
-}
-
-.stat-label {
-  display: block;
-  font-family: var(--font-label);
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-  margin-top: 10px;
-  font-weight: 400;
-}
-
-.heritage-divider-v {
-  width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent, var(--gold-light), transparent);
-  opacity: 0.3;
-}
-
-/* ============================================
-   5. COLLECTIONS (BRIGHT Cards)
+   4. COLLECTIONS (BRIGHT Cards)
    ============================================ */
 .collections {
   padding: var(--section-pad) 0;
@@ -1585,25 +1428,6 @@ html[data-theme="dark"] .navbar {
   right: 0;
   padding: 32px;
   z-index: 2;
-}
-
-.card-number {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  color: var(--gold-light);
-  opacity: 0.7;
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.card-title {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 8px;
 }
 
 .card-desc {
@@ -2522,15 +2346,6 @@ html[data-theme="dark"] .navbar {
   .footer-brand {
     grid-column: 1 / -1;
   }
-
-  .heritage-grid {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .heritage-divider-v {
-    display: none;
-  }
 }
 
 @media (max-width: 768px) {
@@ -2577,10 +2392,6 @@ html[data-theme="dark"] .navbar {
   .hero .btn-secondary {
     width: 100%;
     justify-content: center;
-  }
-
-  .heritage-strip {
-    padding: 36px 0 56px;
   }
 
   /* Nav menu (hamburger overlay) — keep for JS toggle but start hidden */
@@ -2666,14 +2477,6 @@ html[data-theme="dark"] .navbar {
     right: 20px;
     width: 54px;
     height: 54px;
-  }
-
-  .heritage-grid {
-    gap: 15px;
-  }
-
-  .heritage-stat {
-    flex: 0 0 40%;
   }
 }
 

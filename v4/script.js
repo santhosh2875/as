@@ -332,63 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (p && typeof p.catch === 'function') p.catch(() => {});
   });
 
-  // ============================================
-  // 1. PRELOADER (luxury bar + min display, then exit)
-  // ============================================
-  const preloader = document.getElementById('preloader');
-  const preloaderFill = preloader?.querySelector('.preloader-progress-fill');
-  const preloaderTrack = preloader?.querySelector('.preloader-progress');
-  const preloaderMinMs = 900;
-  const preloaderExitMs = 450;
-  let preloaderHidden = false;
-  let loadDone = false;
-  const preloaderT0 = performance.now();
-
-  function runPreloaderProgress() {
-    if (!preloaderFill || !preloaderTrack) return;
-    const start = performance.now();
-    const duration = 1200;
-    function tick(now) {
-      const t = Math.min((now - start) / duration, 1);
-      preloaderFill.style.width = `${t * 100}%`;
-      preloaderTrack.setAttribute('aria-valuenow', String(Math.round(t * 100)));
-      if (t < 1) requestAnimationFrame(tick);
-      else preloaderFill.style.width = '100%';
-    }
-    requestAnimationFrame(tick);
-  }
-
-  if (preloader) runPreloaderProgress();
-
-  function hidePreloader() {
-    if (!preloader || preloaderHidden || preloader.classList.contains('hidden')) return;
-    preloaderHidden = true;
-    preloader.setAttribute('aria-busy', 'false');
-    preloader.classList.add('preloader-exit');
-    setTimeout(() => {
-      preloader.classList.add('hidden');
-      document.body.classList.remove('is-loading');
-      bootBackupHero();
-    }, preloaderExitMs);
-  }
-
-  function tryFinishPreloader() {
-    if (!loadDone || !preloader) return;
-    const elapsed = performance.now() - preloaderT0;
-    const wait = Math.max(0, preloaderMinMs - elapsed);
-    setTimeout(hidePreloader, wait);
-  }
-
-  function onLoadDone() {
-    loadDone = true;
-    tryFinishPreloader();
-  }
-  if (document.readyState === 'complete') onLoadDone();
-  else window.addEventListener('load', onLoadDone);
-
-  setTimeout(() => {
-    if (!preloaderHidden) hidePreloader();
-  }, 4000);
+  bootBackupHero();
 
   initGoldTrail();
   createDesktopParallaxParticles();
@@ -524,6 +468,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // 7. GSAP SCROLL ANIMATIONS (Enhancement only)
   // ============================================
+  let scrollEnhancementsStarted = false;
+
   function initGSAP() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
@@ -546,48 +492,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initDesktopParallaxHeroGsap();
   }
 
-  // Run GSAP after preloader exit (~3.2s typical)
-  setTimeout(initGSAP, 2000);
-
-  // ============================================
-  // 8. HERITAGE COUNTER ANIMATION
-  // ============================================
-  const statNumbers = document.querySelectorAll('.stat-number');
-  let counterDone = false;
-
-  function animateCounters() {
-    if (counterDone) return;
-    counterDone = true;
-    statNumbers.forEach(num => {
-      const target = parseInt(num.dataset.count);
-      const duration = 2000;
-      const start = performance.now();
-      function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        num.textContent = Math.floor(eased * target).toLocaleString();
-        if (progress < 1) requestAnimationFrame(tick);
-        else num.textContent = target.toLocaleString();
-      }
-      requestAnimationFrame(tick);
+  function runScrollEnhancements() {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (!scrollEnhancementsStarted) {
+          scrollEnhancementsStarted = true;
+          initGSAP();
+        }
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      });
     });
   }
 
-  const heritageSection = document.getElementById('heritage');
-  if (heritageSection) {
-    const counterObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    counterObserver.observe(heritageSection);
-  }
+  requestAnimationFrame(() => {
+    requestAnimationFrame(runScrollEnhancements);
+  });
+
+  window.addEventListener('load', () => {
+    setTimeout(runScrollEnhancements, 50);
+  });
 
   // ============================================
-  // 9. TESTIMONIALS CAROUSEL
+  // 8. TESTIMONIALS CAROUSEL
   // ============================================
   const track = document.querySelector('.testimonials-track');
   const dots = document.querySelectorAll('.dot');
@@ -619,7 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================
-  // 10. FAQ ACCORDION
+  // 9. FAQ ACCORDION
   // ============================================
   document.querySelectorAll('.faq-item').forEach(item => {
     const btn = item.querySelector('.faq-question');
@@ -633,7 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // 11. SMOOTH SCROLL
+  // 10. SMOOTH SCROLL
   // ============================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -650,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // 12. TILT EFFECT ON COLLECTION CARDS
+  // 11. TILT EFFECT ON COLLECTION CARDS
   // ============================================
   if (window.innerWidth > 1024) {
     document.querySelectorAll('[data-tilt]').forEach(card => {
@@ -671,7 +597,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================
-  // 13. DARK / LIGHT THEME (reference palette, localStorage)
+  // 12. DARK / LIGHT THEME (reference palette, localStorage)
   // ============================================
   const THEME_KEY = 'asbabusah-v3-theme';
   const themeToggle = document.getElementById('themeToggle');

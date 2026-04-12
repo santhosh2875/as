@@ -535,44 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(initGSAP, 2000);
 
   // ============================================
-  // 8. HERITAGE COUNTER ANIMATION
-  // ============================================
-  const statNumbers = document.querySelectorAll('.stat-number');
-  let counterDone = false;
-
-  function animateCounters() {
-    if (counterDone) return;
-    counterDone = true;
-    statNumbers.forEach(num => {
-      const target = parseInt(num.dataset.count);
-      const duration = 2000;
-      const start = performance.now();
-      function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        num.textContent = Math.floor(eased * target).toLocaleString();
-        if (progress < 1) requestAnimationFrame(tick);
-        else num.textContent = target.toLocaleString();
-      }
-      requestAnimationFrame(tick);
-    });
-  }
-
-  const heritageSection = document.getElementById('heritage');
-  if (heritageSection) {
-    const counterObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    counterObserver.observe(heritageSection);
-  }
-
-  // ============================================
-  // 9. TESTIMONIALS CAROUSEL
+  // 8. TESTIMONIALS CAROUSEL
   // ============================================
   const track = document.querySelector('.testimonials-track');
   const dots = document.querySelectorAll('.dot');
@@ -604,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================
-  // 10. FAQ ACCORDION
+  // 9. FAQ ACCORDION
   // ============================================
   document.querySelectorAll('.faq-item').forEach(item => {
     const btn = item.querySelector('.faq-question');
@@ -618,7 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // 11. SMOOTH SCROLL
+  // 10. SMOOTH SCROLL
   // ============================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -635,7 +598,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ============================================
-  // 12. TILT EFFECT ON COLLECTION CARDS
+  // 11. TILT EFFECT ON COLLECTION CARDS
   // ============================================
   if (window.innerWidth > 1024) {
     document.querySelectorAll('[data-tilt]').forEach(card => {
@@ -656,7 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================
-  // 13. DARK / LIGHT THEME (reference palette, localStorage)
+  // 12. DARK / LIGHT THEME (reference palette, localStorage)
   // ============================================
   const THEME_KEY = 'asbabusah-v3-theme';
   const themeToggle = document.getElementById('themeToggle');

@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="about-page.css" />
 </head>
 <body data-page="about">
 
@@ -25,30 +26,53 @@
 
   <div class="scroll-progress" id="scroll-progress"></div>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar scrolled" id="navbar" role="navigation" aria-label="Main navigation">
-    <div class="container">
-      <a href="index.html" class="nav-logo" aria-label="A.S. Babu Sah Home">
-        <span class="nav-logo-main">A.S. BABU SAH</span>
-        <span class="nav-logo-sub">Babu Sarees Private Limited</span>
+  <div class="ticker" id="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Book Your Exclusive Virtual Shopping Experience</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Shop Premium Silk Sarees from the Comfort of Your Home</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Schedule a Personal Styling Session - Download Our App</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> 100 Years of Silk Heritage</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Book Your Exclusive Virtual Shopping Experience</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Shop Premium Silk Sarees from the Comfort of Your Home</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> Schedule a Personal Styling Session - Download Our App</span>
+      <span class="ticker-divider">✦</span>
+      <span class="ticker-item"><span class="ticker-diamond">◆</span> 100 Years of Silk Heritage</span>
+      <span class="ticker-divider">✦</span>
+    </div>
+  </div>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo" aria-label="A.S. Babu Sah Home">
+        <span class="logo-main">A.S. BABU SAH</span>
+        <span class="logo-sub">Est. 1924 · Kanchipuram</span>
       </a>
-      <ul class="nav-links" id="nav-links" role="menubar">
-        <li role="none"><a href="index.html" role="menuitem" id="nav-home">Home</a></li>
-        <li role="none"><a href="about.html" class="active" role="menuitem" id="nav-about">About</a></li>
-        <li role="none"><a href="../collections.html" role="menuitem" id="nav-collections">Collections</a></li>
-        <li role="none"><a href="showroom.html" role="menuitem" id="nav-showroom">Showroom</a></li>
-        <li role="none"><a href="index.html#contact" class="nav-cta" role="menuitem" id="nav-contact">Enquire Now</a></li>
-      </ul>
-      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html#collections" class="nav-link" data-text="Collections">Collections</a>
+        <a href="index.html#experience" class="nav-link" data-text="Experience">Experience</a>
+        <a href="index.html#testimonials" class="nav-link" data-text="Reviews">Reviews</a>
+        <a href="index.html#faq" class="nav-link" data-text="FAQ">FAQ</a>
+        <a href="https://wa.me/919566644426" class="nav-cta" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book Appointment
+        </a>
+      </div>
     </div>
   </nav>
 
   <!-- ===== PAGE HERO BANNER ===== -->
   <section class="page-hero" aria-label="About Page Hero">
     <div class="page-hero-bg">
-      <img src="../images/parallax_loom_closeup.webp" alt="" aria-hidden="true" />
+      <img src="img/wmremove-transformed.png" alt="" aria-hidden="true" />
     </div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
@@ -61,7 +85,7 @@
   <!-- ===== HERITAGE SECTION ===== -->
   <section class="parallax-section heritage-section" id="heritage" aria-label="Our Heritage">
     <div class="parallax-bg heritage-parallax-bg">
-      <img src="../images/parallax_silk_bg.webp" alt="" aria-hidden="true" />
+      <img src="img/IMG_4019.JPG" alt="" aria-hidden="true" />
     </div>
     <div class="parallax-bg-overlay"></div>
 
@@ -69,7 +93,7 @@
       <div class="heritage-grid">
         <div class="heritage-image-wrapper" data-scroll-reveal="left">
           <div class="heritage-img-frame">
-            <img src="../images/heritage_weaving.webp" alt="Traditional Kanchipuram silk weaving" loading="lazy" />
+            <img src="img/heritage_weaving.webp" alt="Traditional Kanchipuram silk weaving" loading="lazy" />
             <div class="img-frame-border"></div>
           </div>
           <div class="heritage-year-badge floating-badge">
@@ -110,7 +134,7 @@
   <!-- ===== PARALLAX DIVIDER - SILK DRAPE ===== -->
   <section class="parallax-divider" aria-hidden="true">
     <div class="parallax-divider-bg">
-      <img src="../images/parallax_silk_drape.webp" alt="" />
+      <img src="img/IMG_4015.JPG" alt="" />
     </div>
     <div class="parallax-divider-overlay"></div>
     <div class="parallax-divider-text">
@@ -121,7 +145,7 @@
   <!-- ===== WHY CHOOSE US ===== -->
   <section class="parallax-section usp-section" id="why-us" aria-label="Why Choose A.S. Babu Sah">
     <div class="parallax-bg usp-parallax-bg">
-      <img src="../images/parallax_gold_overlay.webp" alt="" aria-hidden="true" />
+      <img src="img/IMG_4016.JPG" alt="" aria-hidden="true" />
     </div>
     <div class="parallax-bg-overlay dark-overlay"></div>
 
@@ -172,7 +196,7 @@
   <!-- ===== PARALLAX DIVIDER - TEMPLE ===== -->
   <section class="parallax-divider temple-divider" aria-hidden="true">
     <div class="parallax-divider-bg">
-      <img src="../images/parallax_temple_bg.webp" alt="" />
+      <img src="img/IMG_4011.JPG" alt="" />
     </div>
     <div class="parallax-divider-overlay temple-overlay"></div>
     <div class="parallax-divider-text">
@@ -183,7 +207,7 @@
   <!-- ===== MANAGEMENT SECTION ===== -->
   <section class="parallax-section management-section" id="management" aria-label="Our Management">
     <div class="parallax-bg management-parallax-bg">
-      <img src="../images/parallax_silk_bg.webp" alt="" aria-hidden="true" />
+      <img src="img/IMG_4019.JPG" alt="" aria-hidden="true" />
     </div>
     <div class="parallax-bg-overlay"></div>
 
@@ -229,7 +253,7 @@
         <h2 class="section-title">Ready to Find Your <span class="gold">Dream Saree</span>?</h2>
         <p class="section-subtitle" style="margin:0 auto 30px;">Explore our curated collections or send us an enquiry today.</p>
         <div class="cta-buttons">
-          <a href="../collections.html" class="btn-primary"><span><i class="fa-solid fa-gem"></i>&nbsp; View Collections</span></a>
+          <a href="index.html#collections" class="btn-primary"><span><i class="fa-solid fa-gem"></i>&nbsp; View Collections</span></a>
           <a href="index.html#contact" class="btn-secondary"><i class="fa-solid fa-envelope"></i> Enquire Now</a>
         </div>
       </div>
@@ -257,12 +281,13 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="../collections.html">Our Collections</a></li>
+            <li><a href="index.html#collections">Our Collections</a></li>
             <li><a href="index.html#showroom">Showroom</a></li>
             <li><a href="index.html#contact">Enquiry</a></li>
           </ul>
         </div>
-        <div class="footer-col">`n          <h4>Contact Us</h4>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
           <div class="footer-contact-item">
             <span class="fc-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
             <span>No. 40/A, Nadu Street, Sheikpet, Kanchipuram – 631501</span>
@@ -288,6 +313,6 @@
     </div>
   </footer>
 
-  <script src="../script.js" defer></script>
+  <script src="about.js" defer></script>
 </body>
 </html>
