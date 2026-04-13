@@ -322,14 +322,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function handOffToStaticHero() {
       if (!backdrop || backdrop.classList.contains('hero-video-ended')) return;
       backdrop.classList.add('hero-video-ended');
+      backdrop.classList.remove('hero-video-playing');
       try {
         v.pause();
       } catch (e) { /* ignore */ }
     }
+    function markPlaying() {
+      if (!backdrop || backdrop.classList.contains('hero-video-ended')) return;
+      backdrop.classList.add('hero-video-playing');
+    }
     v.addEventListener('ended', handOffToStaticHero);
     v.addEventListener('error', handOffToStaticHero);
+    v.addEventListener('playing', markPlaying, { passive: true });
+    v.addEventListener('canplay', markPlaying, { passive: true });
     const p = v.play();
-    if (p && typeof p.catch === 'function') p.catch(() => {});
+    if (p && typeof p.catch === 'function') p.catch(() => handOffToStaticHero());
   });
 
   bootBackupHero();

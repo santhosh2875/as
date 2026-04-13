@@ -663,6 +663,14 @@ html[data-theme="dark"] .navbar {
   object-fit: cover;
   object-position: center center;
   z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s var(--ease), visibility 0.5s var(--ease);
+}
+
+.hero-video-backdrop.hero-video-playing .hero-bg-video {
+  opacity: 1;
+  visibility: visible;
 }
 
 .hero-video-backdrop.hero-video-ended .hero-bg-video {
